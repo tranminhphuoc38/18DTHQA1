@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using _04_generic_example.Model;
 
 namespace _04_generic_example.Repository
 {
     public class StudentRepository : IStudentRepository
     {
-        public StudentRepository()
+        private IList<Student> _data;
+
+        public StudentRepository(IList<Student> data)
         {
+            _data = data;
         }
 
-        public void Add(Student item) => Program.s_students.Add(item);
+        public void Add(Student item) => _data.Add(item);
         
-        public IList<Student> GetAll() => Program.s_students; 
+        public IList<Student> GetAll() => _data; 
 
-        public void Remove(Student item) => Program.s_students.Remove(item);
+        public void Remove(Student item) => _data.Remove(item);
         
     }
 }

@@ -7,13 +7,13 @@ namespace _04_generic_example
 {
     class Program
     {
-        public static List<Student> s_students = new List<Student>();
-        public static List<Class> s_classes = new List<Class>();
+        private static List<Student> s_students = new List<Student>();
+        private static List<Class> s_classes = new List<Class>();
 
         static void Main(string[] args)
         {
-            var classRepo = new ClassRepository();
-            var studentRepo = new StudentRepository();
+            IClassRepository classRepo = new ClassRepository(s_classes);
+            IStudentRepository studentRepo = new StudentRepository(s_students);
 
             classRepo.Add(new Class("18DTHQA1"));
             classRepo.Add(new Class("18DTHQA2"));

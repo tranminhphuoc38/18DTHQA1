@@ -6,14 +6,17 @@ namespace _04_generic_example.Repository
 {
     public class ClassRepository : IClassRepository
     {
-        public ClassRepository()
+        private IList<Class> _data;
+
+        public ClassRepository(IList<Class> data)
         {
+            _data = data;
         }
 
-        public void Add(Class item) => Program.s_classes.Add(item);
+        public void Add(Class item) => _data.Add(item);
 
-        public IList<Class> GetAll() => Program.s_classes;
+        public IList<Class> GetAll() => _data;
         
-        public void Remove(Class item) => Program.s_classes.Remove(item);
+        public void Remove(Class item) => _data.Remove(item);
     }
 }
