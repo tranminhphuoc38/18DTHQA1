@@ -17,6 +17,12 @@ namespace _03_class_and_interface_ex
             animals.Add(new Monkey());
             animals.Add(new Dog("Gau gau", Common.Color.Black));
 
+            // Animal move...
+            foreach (var animal in animals)
+            {
+                animal.Move();
+            }
+
             // Circus Show
             var dogTrainer = new TrainerService();
             foreach (var animal in animals)
