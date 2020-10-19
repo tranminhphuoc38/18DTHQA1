@@ -7,20 +7,29 @@ using System.Xml.Serialization;
 namespace _07_linq {
     public class Program {
         public static void Main(string[] args) {
-            XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(Dataset));
-            StreamReader file = new StreamReader(@"D:\MPT\Document\Hutech\18DTHQA1\07-linq\student_sample_data.xml");
+            Dataset data = LoadDataFromXml();
 
-            var data = (Dataset)reader.Deserialize(file);
-            file.Close();
-
-            ListData(data.Students, s => $"{s.FirstName} {s.LastName}");
+            //ListData(data.Students, s => $"{s.FirstName} {s.LastName}");
 
             // Statistic student by Gender
-            StatistucByGender(data);
+            //StatisticByGender(data);
 
-            CalculateGPA(data);
+            // Calculate GPA of each student
+            //CalculateGPA(data);
 
+            // List students who must repeat subject: has a subject less than 5
+            var repeatedStudents = data.Students.Where(x => x.Exam.Any(r => r.Score < 5));
+            ListData(repeatedStudents, s => $"{s.FirstName} {s.LastName}");
             Console.ReadLine();
+        }
+
+        private static Dataset LoadDataFromXml() {
+            XmlSerializer reader = new XmlSerializer(typeof(Dataset));
+            StreamReader file = new StreamReader(@"..\..\..\student_sample_data.xml");
+
+            Dataset data = (Dataset)reader.Deserialize(file);
+            file.Close();
+            return data;
         }
 
         private static void ListData<T>(IEnumerable<T> data, Func<T, string> selector) {
@@ -29,14 +38,19 @@ namespace _07_linq {
             }
         }
 
-        private static void StatistucByGender(Dataset data) {
-            var genderData = data.Students.GroupBy(s => s.Gender, s => s.Id, (k, v) => new { Gender = k, Number = v.Count() });
-            foreach (var g in genderData) {
-                Console.WriteLine($"{g.Gender}: {g.Number}");
-            }
+        private static void StatisticByGender(Dataset data) {
+            var genderData = data.Students.GroupBy(s => s.Gender, s => s.Id, 
+                (k, v) => new { Gender = k, Number = v.Count() });
+
+            ListData(genderData, g => $"{g.Gender}: {g.Number}");
         }
 
         private static void CalculateGPA(Dataset data) {
+            // Prepare Result list
+            //List<Result> resultList = data.Students.SelectMany(s => s.Exam).ToList();
+            //resultList.GroupBy(r => r.StudentId, r => r.Score,
+            //    (studentId, listScore) => new { StudentId = studentId, Gpa = listScore.Average() });
+
             var gpaData = data.Students.Select(s => new { 
                 Name = $"{s.FirstName} {s.LastName}", 
                 //Gpa = s.Exam.Select(e => e.Score).Average()
@@ -44,8 +58,6 @@ namespace _07_linq {
             });
             ListData(gpaData, g => $"{g.Name}: {g.Gpa}");
         }
-
-        
 
     }
 }

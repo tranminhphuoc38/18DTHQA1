@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace asyn_programming
@@ -12,23 +13,25 @@ namespace asyn_programming
             Console.Read();
         }
 
-        static void GetData1()
+        static async void GetData1()
         {
             Console.WriteLine("Method 1 started");
-            Console.WriteLine(GetResult("Method 1 completed", 2000));
+            Console.WriteLine(await GetResultAsync("Method 1 completed", 4000));
         }
 
-        static void GetData2()
+        static async void GetData2()
         {
             Console.WriteLine("Method 2 started");
-            Console.WriteLine(GetResult("Method 2 completed", 4000));
+            Console.WriteLine(await GetResultAsync("Method 2 completed", 6000));
         }
 
-        static string GetResult(string msg, int threadTime)
+        static Task<string> GetResultAsync(string msg, int threadTime)
         {
-            System.Threading.Thread.Sleep(threadTime);
-            return msg;
-
+            return Task.Run(() =>
+            {
+                System.Threading.Thread.Sleep(threadTime);
+                return msg;
+            });
         }
     }
 }
