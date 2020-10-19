@@ -45,8 +45,7 @@
 
     <StackPanel>
         <TextBlock Name="blah" FontSize="20" Text="My Task List:"/>
-        <ListBox Width="500" Margin="10" ItemsSource="{Binding Tasks}" 
-                 ItemTemplate="{StaticResource myTaskTemplate}"
+        <ListBox Width="500" Margin="10" ItemsSource="{Binding Tasks}"
                  HorizontalContentAlignment="Stretch">
         </ListBox>
     </StackPanel>
