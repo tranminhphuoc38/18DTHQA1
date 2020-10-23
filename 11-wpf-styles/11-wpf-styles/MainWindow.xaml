@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:_11_wpf_styles"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:_11_wpf_styles" xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
@@ -14,11 +14,13 @@
                 <ResourceDictionary Source="ModuleStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <Style BasedOn="{StaticResource {x:Type TextBlock}}" TargetType="TextBlock" x:Key="TitleText">
+            <Style BasedOn="{StaticResource {x:Type TextBlock}}" 
+                   TargetType="TextBlock" 
+                   x:Key="TitleText">
                 <Setter Property="FontSize" Value="26"/>
             </Style>
 
-            <!--<Style x:Key="BigFontButton">
+            <Style x:Key="BigFontButton">
                 <Style.Setters>
                     <Setter Property="Control.FontFamily" Value="Times New Roman" />
                     <Setter Property="Control.FontSize" Value="18" />
@@ -31,7 +33,7 @@
                         <Setter Property="Control.FontSize" Value="40" />
                     </Trigger>
                 </Style.Triggers>
-            </Style>-->
+            </Style>
 
         </ResourceDictionary>   
     </Window.Resources>
@@ -41,11 +43,16 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Style="{StaticResource TitleText}">Hello world!!!</TextBlock>
+        <TextBlock Grid.Row="0" Style="{StaticResource TitleText}"
+                   Text="{StaticResource strHelloWorld}">
+        </TextBlock>
         
         <TextBlock Grid.Row="1">Lorem Ipsum is simply dummy text of the printing and typesetting industry</TextBlock>
 
-        <!--<Button Grid.Row="2" Style="{StaticResource BigFontButton}">Test text</Button>-->
+        <Button Grid.Row="2" 
+                Style="{StaticResource BigFontButton}">
+            Test text
+        </Button>
 
         <ComboBox Grid.Row="2" ItemsSource="{Binding ListClass}">
             <ComboBox.ItemTemplate>

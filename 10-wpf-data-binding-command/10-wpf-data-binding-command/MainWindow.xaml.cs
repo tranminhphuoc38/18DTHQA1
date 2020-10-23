@@ -21,4 +21,5 @@ namespace _10_wpf_data_binding_command {
         public MainWindow() {
             InitializeComponent();
         }
- (=ö—‘|ExX
+    }
+}

@@ -9,4 +9,35 @@
         <Setter Property="Foreground" Value="Red"></Setter>
     </Style>
 
+    <DataTemplate x:Key="myTaskTemplate">
+        <Border Name="border" BorderBrush="Aqua" BorderThickness="1"
+          Padding="5" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Task Name:"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=TaskName}" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Description:"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=Description}"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Priority:"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=Priority}"/>
+            </Grid>
+        </Border>
+    </DataTemplate>
+
+    <DataTemplate x:Key="simpleTemplate">
+        <StackPanel>
+            <TextBlock Text="{Binding Path=TaskName}" />
+            <TextBlock Text="{Binding Path=Description}"/>
+            <TextBlock Text="{Binding Path=Priority}"/>
+        </StackPanel>
+    </DataTemplate>
+
 </ResourceDictionary>

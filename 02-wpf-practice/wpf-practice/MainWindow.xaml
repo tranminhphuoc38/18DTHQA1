@@ -5,7 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_practice"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="700">
+        Title="MainWindow" Height="400" Width="700"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
     
     <Grid>
         <Grid.ColumnDefinitions>
@@ -29,7 +36,8 @@
             </MenuItem>
         </Menu>
 
-        <TextBlock Grid.Row="1" Text="Students List" Margin="5" FontSize="20"/>
+        <TextBlock Grid.Row="1" Style="{DynamicResource MaterialDesignHeadline6TextBlock}"
+                   Text="Students List" Margin="5" FontSize="20"/>
         
         <Border Grid.Row="1" BorderThickness="0 0 0 1" BorderBrush="Gray"/>
 
@@ -46,8 +54,8 @@
                 <ComboBoxItem >18DHTQA1</ComboBoxItem>
                 <ComboBoxItem>18DHTQA2</ComboBoxItem>
             </ComboBox>
-            <Button Grid.Column="2" Style="{DynamicResource MaterialDesignFlatButton}" Content="Search" Margin="5"/>
-            <Button Grid.Column="3" Style="{DynamicResource MaterialDesignFlatButton}" Content="Reset" Margin="5"/>
+            <Button Grid.Column="2" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Content="Search" Margin="5"/>
+            <Button Grid.Column="3" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Content="Reset" Margin="5"/>
         </Grid>
 
         <Border Grid.Row="3" Background="LightGray" Margin="5">

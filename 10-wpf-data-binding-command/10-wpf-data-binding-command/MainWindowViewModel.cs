@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace _10_wpf_data_binding_command {
     public class MainWindowViewModel : INotifyPropertyChanged, IDataErrorInfo {
@@ -13,6 +14,8 @@ namespace _10_wpf_data_binding_command {
 
         public MainWindowViewModel() {
             Hello = "Welcome XXX";
+
+            SaveCommand = new RelayCommand(o => Save(), o => !string.IsNullOrEmpty(Name));
         }
 
         public string Hello { 
@@ -37,6 +40,7 @@ namespace _10_wpf_data_binding_command {
         public string Name { get; set; }
 
         #region validation (IDataErrorInfo)
+
         public string this[string columnName] {
             get {
                 string result = string.Empty;
@@ -53,6 +57,15 @@ namespace _10_wpf_data_binding_command {
             get { throw new NotImplementedException(); }
         }
 
+        #endregion
+
+        #region Command
+
+        public ICommand SaveCommand { get; set; }
+
+        public void Save() {
+
+        }
 
         #endregion
     }

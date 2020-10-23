@@ -12,4 +12,4 @@ namespace _10_wpf_data_binding_command {
     /// </summary>
     public partial class App : Application {
     }
-Tú´
+}

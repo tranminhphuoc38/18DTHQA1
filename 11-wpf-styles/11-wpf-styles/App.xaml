@@ -1,9 +1,11 @@
 ﻿<Application x:Class="_11_wpf_styles.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:_11_wpf_styles"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:_11_wpf_styles" xmlns:system="clr-namespace:System;assembly=mscorlib"
+             StartupUri="DataTemplateWindow.xaml">
     <Application.Resources>
-        
+        <system:String x:Key="strHelloWorld">Hello, world!</system:String>
+
+        <Brush x:Key="TextBackground">Red</Brush>
     </Application.Resources>
 </Application>

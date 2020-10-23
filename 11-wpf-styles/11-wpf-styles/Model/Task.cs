@@ -6,8 +6,8 @@ namespace _11_wpf_styles.Model {
         public string Description { get; set; }
         public int Priority { get; set; }
 
-        //public override string ToString() {
-        //    return TaskName;
-        //}
+        public override string ToString() {
+            return TaskName;
+        }
     }
 }

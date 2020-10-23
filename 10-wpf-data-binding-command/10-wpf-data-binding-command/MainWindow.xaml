@@ -11,6 +11,10 @@
             <Setter Property="Margin" Value="5"/>
         </Style>
 
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
         <vm:HelloConverter x:Key="helloConverter"></vm:HelloConverter>
     </Window.Resources>
 
@@ -20,11 +24,15 @@
     
     <StackPanel>
         
-        <TextBox x:Name="txtInput"></TextBox>
+        <!--<TextBox x:Name="txtInput"></TextBox>-->
+
+        <!--<TextBox Text="{Binding Hello}" ></TextBox>-->
+        
+        <TextBox Text="{Binding Name, ValidatesOnDataErrors=True}" ></TextBox>
 
         <TextBox Text="{Binding Hello}" ></TextBox>
 
-        <Label Content="{Binding ElementName=txtInput, Path=Text, UpdateSourceTrigger=LostFocus}"></Label>
+        <!--<Label Content="{Binding ElementName=txtInput, Path=Text, UpdateSourceTrigger=LostFocus}"></Label>-->
 
         <!--<TextBox x:Name="txtInput" Text="{Binding ElementName=lblOutput, Path=Content, UpdateSourceTrigger=LostFocus}"></TextBox>
 
@@ -32,7 +40,9 @@
         
         <TextBox ></TextBox>-->
 
-        <ComboBox ItemsSource="{Binding Path=Classes}" SelectedItem="{Binding Path=SelectedClass}"></ComboBox>
+        <!--<ComboBox ItemsSource="{Binding Path=Classes}" SelectedItem="{Binding Path=SelectedClass}"></ComboBox>-->
+
+        <Button Command="{Binding SaveCommand}">Save Data</Button>
         
     </StackPanel>
 </Window>
