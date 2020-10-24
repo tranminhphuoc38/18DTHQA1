@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_practice"
         mc:Ignorable="d"
+        xmlns:vm="clr-namespace:wpf_practice"
         Title="MainWindow" Height="400" Width="700"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -13,6 +14,10 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Window.DataContext>
+        <vm:MainWindowViewModel></vm:MainWindowViewModel>
+    </Window.DataContext>
     
     <Grid>
         <Grid.ColumnDefinitions>
@@ -28,7 +33,7 @@
         <Menu Grid.Row="0">
             <MenuItem Header="Student">
                 <MenuItem Header="Students List"></MenuItem>
-                <MenuItem Header="Create Student"></MenuItem>
+                <MenuItem Header="Create Student" Command="{Binding NewStudentCommand}"></MenuItem>
                 <MenuItem Header="Delete Student"></MenuItem>
             </MenuItem>
             <MenuItem Header="Class">
@@ -48,18 +53,23 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0" Margin="5"></TextBox>
-            <ComboBox Grid.Column="1" Margin="5">
-                <ComboBoxItem IsSelected="True">None</ComboBoxItem>
+            
+            <TextBox Grid.Column="0" Margin="5" Text="{Binding SearchText}"></TextBox>
+
+            <ComboBox Grid.Column="1" Margin="5" ItemsSource="{Binding ClassList}" DisplayMemberPath="Name">
+                <!--<ComboBoxItem IsSelected="True">None</ComboBoxItem>
                 <ComboBoxItem >18DHTQA1</ComboBoxItem>
-                <ComboBoxItem>18DHTQA2</ComboBoxItem>
+                <ComboBoxItem>18DHTQA2</ComboBoxItem>-->
             </ComboBox>
-            <Button Grid.Column="2" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Content="Search" Margin="5"/>
-            <Button Grid.Column="3" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Content="Reset" Margin="5"/>
+            <Button Grid.Column="2" Content="Search" Margin="5" Command="{Binding SearchCommand}"/>
+            <Button Grid.Column="3" Content="Reset" Margin="5" Command="{Binding ResetCommand}"/>
         </Grid>
 
-        <Border Grid.Row="3" Background="LightGray" Margin="5">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Data Grid Here</TextBlock>
+        <Border Grid.Row="3" BorderBrush="Gray" BorderThickness="1" Margin="5">
+            <!--<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Data Grid Here</TextBlock>-->
+            <ListView Margin="5" ItemsSource="{Binding StudentList}">
+
+            </ListView>
         </Border>
     </Grid>
 </Window>

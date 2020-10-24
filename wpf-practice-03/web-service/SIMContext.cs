@@ -1,5 +1,5 @@
-﻿using System.Data.Entity;
-using web_service.Models;
+﻿using Common.Model;
+using System.Data.Entity;
 
 namespace web_service {
     public class SIMContext : DbContext {

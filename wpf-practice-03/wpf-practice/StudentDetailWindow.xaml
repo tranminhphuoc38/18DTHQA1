@@ -4,9 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_practice"
+        xmlns:vm="clr-namespace:wpf_practice"
         mc:Ignorable="d"
         Title="StudentDetailWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:StudentDetailViewModel></vm:StudentDetailViewModel>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Command="{Binding CloseCommand}" 
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">Cancel</Button>
+        </StackPanel>
     </Grid>
 </Window>
