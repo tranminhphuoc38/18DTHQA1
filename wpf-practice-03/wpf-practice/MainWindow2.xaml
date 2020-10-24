@@ -1,0 +1,43 @@
+﻿<Window x:Class="wpf_practice.MainWindow2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_practice"
+        mc:Ignorable="d"
+        Title="MainWindow2" Height="400" Width="700">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Student">
+                <MenuItem Header="Students List"></MenuItem>
+                <MenuItem Header="Create Student"></MenuItem>
+                <MenuItem Header="Delete Student"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Class">
+            </MenuItem>
+        </Menu>
+
+        <Grid DockPanel.Dock="Top" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Margin="5"></TextBox>
+            <ComboBox Grid.Column="1" Margin="5"></ComboBox>
+            <Button Grid.Column="2" Content="Search" Margin="5"/>
+            <Button Grid.Column="3" Content="Reset" Margin="5"/>
+        </Grid>
+
+        <TextBlock DockPanel.Dock="Top" Text="Students List" Margin="5" FontSize="20"/>
+
+        <Border DockPanel.Dock="Top" BorderThickness="0 0 0 1" BorderBrush="Gray"/>
+
+        
+
+        <Border Background="LightGray" Margin="5">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Data Grid Here</TextBlock>
+        </Border>
+    </DockPanel>
+</Window>
