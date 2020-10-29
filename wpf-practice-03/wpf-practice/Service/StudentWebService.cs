@@ -8,7 +8,7 @@ using System.Net.Http;
 namespace wpf_practice.Service {
     public class StudentWebService : IStudentService {
 
-        public const string BASE_URL = "https://localhost:44357/api/";
+        public const string BASE_URL = "https://localhost:44361/api/";
         private readonly HttpClient m_client;
 
         public StudentWebService() {

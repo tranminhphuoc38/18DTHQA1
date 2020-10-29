@@ -11,8 +11,11 @@ namespace wpf_practice
         private string _searchText;
         public MainWindowViewModel()
         {
-            //StudentService = new StudentWebService();
-            StudentService = new StudentService();
+            // Using Web Service
+            StudentService = new StudentWebService();
+
+            // Using File
+            //StudentService = new StudentService();
 
             SearchCommand = new RelayCommand(SearchData);
             NewStudentCommand = new RelayCommand(NewStudent);

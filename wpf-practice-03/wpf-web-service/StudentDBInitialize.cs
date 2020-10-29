@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 using web_service;
 
 namespace hello_swagger {
-    public class StudentDBInitialize : DropCreateDatabaseAlways<SIMContext> {
+    public class StudentDBInitialize : DropCreateDatabaseIfModelChanges<SIMContext> {
 
         protected override void Seed(SIMContext context) {
             var dataset = LoadDataFromXml();
