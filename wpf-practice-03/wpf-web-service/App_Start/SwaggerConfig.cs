@@ -32,7 +32,7 @@ namespace hello_swagger
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "hello_swagger");
+                        c.SingleApiVersion("v1", "Student Information Management");
 
                         // If you want the output Swagger docs to be indented properly, enable the "PrettyPrint" option.
                         //

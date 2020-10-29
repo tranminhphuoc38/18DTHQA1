@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace Common.Model
 {
-    [XmlRoot("dataset")]
+    [XmlRoot("Dataset")]
     public class Dataset
     {
 

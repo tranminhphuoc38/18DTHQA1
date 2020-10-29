@@ -1,15 +1,10 @@
 ﻿using Common.Model;
 using Common.Service;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using web_service.Service;
 
-namespace web_service.Controllers
-{
+namespace web_service.Controllers {
     public class StudentController : ApiController
     {
         private IStudentService service;
@@ -19,27 +14,27 @@ namespace web_service.Controllers
             service = new DbStudentService();
         }
 
-        [HttpPost]
-        public IEnumerable<Student> SearchStudent()
+        public IEnumerable<Student> GetSearchStudent(string searchText = null, string studentClass= null)
         {
-            return service.SearchStudent(new StudentSearchCriteria());
+            return service.SearchStudent(new StudentSearchCriteria { 
+                ClassName = studentClass, 
+                SearchText = searchText 
+            });
         }
 
-        public IEnumerable<Student> Get()
+        public void PostNewStudept([FromBody]Student student)
         {
-            return service.SearchStudent(new StudentSearchCriteria());
+            service.Add(student);
         }
 
-        public void Post([FromBody]Student student)
+        public void PutUpdateStudent(int id, [FromBody] Student student)
         {
-        }
-
-        public void Put(int id, [FromBody] Student student)
-        {
+            service.Add(student);
         }
 
         public void Delete(int id)
         {
+            service.Remove(id);
         }
     }
 }

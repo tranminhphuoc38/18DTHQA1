@@ -12,7 +12,8 @@ namespace web_service.Service
 
         public DbStudentService()
         {
-            _context = new SIMContext();
+            var connectionString = "Server=.;Database=SIM;Trusted_Connection=True;";
+            _context = new SIMContext(connectionString);
         }
         public Student Add(Student student)
         {
