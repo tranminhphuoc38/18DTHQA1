@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
-namespace web_service
+namespace hello_swagger
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

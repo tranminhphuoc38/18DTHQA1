@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpf-practice", "wpf-practice\wpf-practice.csproj", "{00A91335-AB33-4367-938C-280AAF13E845}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "common", "Common\common.csproj", "{474FB5BA-87C4-4954-90F1-898B7844FFD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web-service-testing", "web-service-testing\web-service-testing.csproj", "{3FE7AC66-92FE-45E7-A900-5852885FFFF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web-api", "wpf-web-service\web-api.csproj", "{721FAEA8-6E1B-422E-B440-657D90D23076}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{474FB5BA-87C4-4954-90F1-898B7844FFD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{474FB5BA-87C4-4954-90F1-898B7844FFD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{474FB5BA-87C4-4954-90F1-898B7844FFD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FE7AC66-92FE-45E7-A900-5852885FFFF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FE7AC66-92FE-45E7-A900-5852885FFFF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FE7AC66-92FE-45E7-A900-5852885FFFF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FE7AC66-92FE-45E7-A900-5852885FFFF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{721FAEA8-6E1B-422E-B440-657D90D23076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{721FAEA8-6E1B-422E-B440-657D90D23076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{721FAEA8-6E1B-422E-B440-657D90D23076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{721FAEA8-6E1B-422E-B440-657D90D23076}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

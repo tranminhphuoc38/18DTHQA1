@@ -12,7 +12,7 @@ namespace web_service.Service
 
         public DbStudentService()
         {
-
+            _context = new SIMContext();
         }
         public Student Add(Student student)
         {
@@ -34,7 +34,7 @@ namespace web_service.Service
 
         public List<Student> SearchStudent(StudentSearchCriteria criteria)
         {
-            throw new NotImplementedException();
+            return _context.Students.ToList();
         }
 
         public Student Update(Student student)

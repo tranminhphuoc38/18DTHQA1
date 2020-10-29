@@ -43,6 +43,9 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=3.2.0.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.3.2.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -67,6 +70,7 @@
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Service\StudentService.cs" />
+    <Compile Include="Service\StudentWebService.cs" />
     <Compile Include="StudentDetailViewModel.cs" />
     <Compile Include="StudentDetailWindow.xaml.cs">
       <DependentUpon>StudentDetailWindow.xaml</DependentUpon>

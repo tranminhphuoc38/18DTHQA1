@@ -19,29 +19,25 @@ namespace web_service.Controllers
             service = new DbStudentService();
         }
 
-        // GET: api/Student
+        [HttpPost]
+        public IEnumerable<Student> SearchStudent()
+        {
+            return service.SearchStudent(new StudentSearchCriteria());
+        }
+
         public IEnumerable<Student> Get()
         {
             return service.SearchStudent(new StudentSearchCriteria());
         }
 
-        // GET: api/Student/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/Student
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Student student)
         {
         }
 
-        // PUT: api/Student/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] Student student)
         {
         }
 
-        // DELETE: api/Student/5
         public void Delete(int id)
         {
         }
