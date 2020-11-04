@@ -16,7 +16,10 @@ namespace web_service.Service
         }
         public Student Add(Student student)
         {
-            throw new NotImplementedException();
+            var newStudent = _context.Students.Add(student);
+            _context.SaveChanges();
+
+            return newStudent;
         }
 
         public List<Class> GetAllClasses()
@@ -29,12 +32,19 @@ namespace web_service.Service
 
         public void Remove(int studentId)
         {
-            throw new NotImplementedException();
+            var deletedStudent = _context.Students.FirstOrDefault(s => s.Id == studentId);
+
+            _context.Students.Remove(deletedStudent);
+
+            _context.SaveChanges();
         }
 
         public List<Student> SearchStudent(StudentSearchCriteria criteria)
         {
-            return _context.Students.ToList();
+            return _context.Students.Where(s => 
+                string.IsNullOrEmpty(criteria.SearchText) ||
+                s.FirstName.Contains(criteria.SearchText)
+            ).ToList();
         }
 
         public Student Update(Student student)

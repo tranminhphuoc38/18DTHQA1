@@ -10,7 +10,6 @@ namespace web_service {
 
         public DbSet<Student> Students { get; set; }
 
-        public System.Data.Entity.DbSet<Common.Model.Class> Classes { get; set; }
-        //public DbSet<Class> Classes { get; set; }
+        public DbSet<Class> Classes { get; set; }
     }
 }
